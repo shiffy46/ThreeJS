@@ -1,0 +1,4 @@
+20 May 2019-
+Played around with threejs tutorials, got a semi working GUI for the block placements on the fields within the practive plans.
+
+TODO- fix the GUI functionality and add limits to not lose the blocks themselves in outer space.
