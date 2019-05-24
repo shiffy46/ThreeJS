@@ -1,11 +1,14 @@
 function addBlock() {
     var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-    var material = new THREE.MeshLambertMaterial( { color: 0x00ff00} );
-    material.opacity = 0.5;
+    var material = new THREE.MeshLambertMaterial( { color: 0xFFFFFF} );
+    material.opacity = 0.75;
     material.transparent = true;
     var cube = new THREE.Mesh( geometry, material );
-    cube.position.set(0.0000,0.0000,0.0000);
+    cube.position.set(0.0000,0.00000,1.0000);
     cube.scale.set(0,0,1)
+    cube.castShadow = true;
+    cube.receiveShadow = true;
+    cube.userData = {name : "BLOCK"}
     scene.add( cube );
     TweenMax.to(cube.scale ,0.5, {x:1,y:1, ease : Circ.easeOut});
 }
