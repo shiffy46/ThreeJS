@@ -2,15 +2,10 @@
 
 function setBaseCubes(scene,camera) {
 var isMoving = false;
-var mousex = 0;
-var mousey = 0;
 var Block = null;
 
 var raycaster = new THREE.Raycaster();
 var mouse = new THREE.Vector3();
-var vec = new THREE.Vector3();
-
-var globalCube = null;
 
 var geometry = new THREE.BoxGeometry( 8, 15, 1);
 //var material = new THREE.MeshLambertMaterial( { color: 0x00ff00} );
@@ -36,7 +31,6 @@ scene.add( cube );
 TweenMax.to(cube.scale ,0.5, {y:1, ease : Circ.easeOut});
 
 
-var projector = new THREE.Projector();
 var planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), -1);
 
 function grabBlock(event) {
@@ -57,16 +51,27 @@ function grabBlock(event) {
 
     var intersects = raycaster.intersectObjects(mainPractice.scene.children, true);
 
+        console.log(isHovering)
+
     if(intersects.length != 0)
     {
         if(intersects[0].object.userData.name != "FIELD") { 
             Block = intersects[0];
-            setGlobalBlock(mainPractice,Block.object)
+            setGlobalBlock(mainPractice,Block.object);
             isMoving = true;
         }
+        else if(!isHovering) {
+            console.log("testing 2")
+            setGlobalBlock(mainPractice,null);
+        }
     }
-
+    else if(!isHovering) {
+        console.log("testing 1")
+        setGlobalBlock(mainPractice,null);
+    }
+    console.log("tracking")
 }
+
 
 
 function moveBlock(event) {

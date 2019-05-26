@@ -25,6 +25,7 @@ function initBlock() {
 
 //when a cube is created, we create the userdata for that cube that corresponds to practice information
 function setBlockProps(cube) {
+    stopRay();
     cube.userData.name = "Drill" ;
     cube.userData.description = "TEST";
     cube.userData.coach = "CAMPELL";
@@ -32,30 +33,35 @@ function setBlockProps(cube) {
 }
 
 function lengthenBlock() {
+    stopRay();
     if(mainPractice.globalBlock != null && mainPractice.globalBlock.scale.y < 10){
         TweenMax.to(mainPractice.globalBlock.scale ,0.5,{y:"+="+0.45, ease : Circ.easeOut});
     }
 }
 
 function widenBlock() {
+    stopRay();
     if(mainPractice.globalBlock != null && mainPractice.globalBlock.scale.x < 6){
         TweenMax.to(mainPractice.globalBlock.scale ,0.5,{x:"+="+0.45, ease : Circ.easeOut});
     }
 }
 
 function shortenBlock() {
+    stopRay();
     if(mainPractice.globalBlock != null && mainPractice.globalBlock.scale.y > 0.75){
         TweenMax.to(mainPractice.globalBlock.scale ,0.5,{y:"-="+0.45, ease : Circ.easeOut});
     }
 }
 
 function squeezeBlock() {
+    stopRay();
     if(mainPractice.globalBlock != null && mainPractice.globalBlock.scale.x > 0.75){
         TweenMax.to(mainPractice.globalBlock.scale ,0.5,{x:"-="+0.45, ease : Circ.easeOut});
     }
 }
 
 function deleteBlock() {
+    stopRay();
     if(mainPractice.globalBlock != null){
         TweenMax.to(mainPractice.globalBlock.scale ,0.5, {x:0,y:0, ease : Circ.easeOut});
         setTimeout( function() {
@@ -63,4 +69,45 @@ function deleteBlock() {
             mainPractice.globalBlock=null;
         },500);
     }
+}
+
+function stopRay() {
+    console.log("hovering");
+    isHovering = true;
+}
+
+function resumeRay() {
+    console.log(" not hovering");
+    isHovering = false;
+}
+
+function addSection() {
+    var minuteBut = createButton("btn btn-secondary","addSection()","button");
+    var sectionBut = createButton("btn btn-secondary btn-block","addSection()","button");
+    var div = document.createElement("div");
+    var att = "class";
+    var value = "btn-group";
+    var att2 = "style";
+    var value2 = "padding:2px;";
+    div.setAttribute(att, value);
+    div.setAttribute(att2, value2);
+    div.appendChild(minuteBut);
+    div.appendChild(sectionBut);
+    var sections = document.getElementById("sections");
+    sections.appendChild(div);
+}
+
+function createButton(className, onClickFunc, type ) {
+    var button = document.createElement("button");
+    addAtt(button,"class",className);
+    addAtt(button,"onclick", onClickFunc);
+    addAtt(button,"type",type);
+    addAtt(button, "onmouseenter", "stopRay()");
+    addAtt(button, "onmouseleave", "resumeRay()");
+    button.innerHTML = "section" + mainPractice.sections.length;
+    return(button);
+}
+
+function addAtt(element,attName,value) {
+    element.setAttribute(attName,value);
 }

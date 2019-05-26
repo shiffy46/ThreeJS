@@ -7,7 +7,7 @@
             }
             canvas {
                 width: 100%;
-                height: 100%
+                height: 100%;
             }
         </style>
         <link href="css/main.css" rel="stylesheet">
@@ -18,48 +18,38 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     </head>
     <body>
+        <div style="width: 30%; height: 100%; position: absolute; padding: 10px"> 
+                <div class="list-group" id="sections">
+                    <div class="btn-group" style="padding:2px;">
+                        <button class="btn btn-secondary" onclick="addSection()" type="button" onmouseenter="stopRay()" onmouseleave="resumeRay()">15:00</button>
+                        <button class="btn btn-secondary btn-block" onclick="addSection()" type="button" onmouseenter="stopRay()" onmouseleave="resumeRay()">Section 1</button>
+                    </div>
+                    <div class="btn-group" style="padding:2px;">
+                        <button class="btn btn-secondary" onclick="addSection()" type="button" onmouseenter="stopRay()" onmouseleave="resumeRay()">15:00</button>
+                        <button class="btn btn-secondary btn-block" onclick="addSection()" type="button" onmouseenter="stopRay()" onmouseleave="resumeRay()">Section 2</button>
+                    </div>
+                </div>
+        </div>
+        <div style="width: 30%; height: 100%; right: 5px; position: absolute;"> 
 
-        <div class="container-fluid border-primary pt-5" id="container" style="position: absolute">
-            <div class="row border-primary">
-                <div class="col-md-1">
-                    <button class="btn btn-secondary" id="delete" onclick="addSection()" type="button">Add Section</button>
-                </div>
-            </div>
-            <div class="row borer-primary">
-                <div class="col-md-1">
-                    <button class="btn btn-secondary" id="addsquare" onclick="addBlock()" type="button">Add Block</button>
-                </div>
-            </div>
-            <div class="row border-primary">
-                <div class="col-md-1">
-                    <button class="btn btn-secondary" id="taller" onclick="lengthenBlock()" type="button">Lengthen Block</button>
-                </div>
-            </div>
-            <div class="row border-primary">
-                <div class="col-md-1">
-                    <button class="btn btn-secondary" id="wider" onclick="widenBlock()" type="button">Widen Block</button>
-                </div>
-            </div>
-            <div class="row border-primary">
-                <div class="col-md-1">
-                    <button class="btn btn-secondary" id="shorter" onclick="shortenBlock()" type="button">Shorten Block</button>
-                </div>
-            </div>
-            <div class="row border-primary">
-                <div class="col-md-1">
-                    <button class="btn btn-secondary" id="skinnier" onclick="squeezeBlock()" type="button">Squeeze Block</button>
-                </div>
-            </div>
-            <div class="row border-primary">
-                <div class="col-md-1">
-                    <button class="btn btn-secondary" id="delete" onclick="deleteBlock()" type="button">Delete Block</button>
-                </div>
-            </div>
-            <div class="row border-primary">
-                <div class="col-md-1">
-                    <button class="btn btn-secondary" id="delete" onclick="deleteBlock()" type="button">Section 1</button>
-                </div>
-            </div>
+                    <button class="btn btn-secondary" id="delete" onclick="addSection()" type="button" onmouseenter="stopRay()" onmouseleave="resumeRay()">Add Section</button>
+
+
+                    <button class="btn btn-secondary" id="addsquare" onclick="addBlock()" type="button" onmouseenter="stopRay()" onmouseleave="resumeRay()">Add Block</button>
+
+                    <button class="btn btn-secondary" id="taller" onclick="lengthenBlock()" type="button" onmouseenter="stopRay()" onmouseleave="resumeRay()">Lengthen Block</button>
+
+                    <button class="btn btn-secondary" id="wider" onclick="widenBlock()" type="button" onmouseoenter="stopRay()" onmouseleave="resumeRay()">Widen Block</button>
+
+                    <button class="btn btn-secondary" id="shorter" onclick="shortenBlock()" type="button" onmouseenter="stopRay()" onmouseleave="resumeRay()">Shorten Block</button>
+
+
+                    <button class="btn btn-secondary" id="skinnier" onclick="squeezeBlock()" type="button" onmouseenter="stopRay()" onmouseleave="resumeRay()">Squeeze Block</button>
+
+
+                    <button class="btn btn-secondary" id="delete" onclick="deleteBlock()" type="button" onmouseenter="stopRay()" onmouseleave="resumeRay()">Delete Block</button>
+
+                    <button class="btn btn-secondary" id="delete" onclick="deleteBlock()" type="button" onmouseenter="stopRay()" onmouseleave="resumeRay()">Section 1</button>
         </div>
 
     </body>
