@@ -1,3 +1,6 @@
+
+
+function setBaseCubes(scene,camera) {
 var isMoving = false;
 var mousex = 0;
 var mousey = 0;
@@ -52,13 +55,13 @@ function grabBlock(event) {
 
     raycaster.setFromCamera(mouse, camera);
 
-    var intersects = raycaster.intersectObjects(scene.children, true);
+    var intersects = raycaster.intersectObjects(mainPractice.scene.children, true);
 
     if(intersects.length != 0)
     {
         if(intersects[0].object.userData.name != "FIELD") { 
             Block = intersects[0];
-            globalCube = Block.object;
+            setGlobalBlock(mainPractice,Block.object)
             isMoving = true;
         }
     }
@@ -98,3 +101,4 @@ function relBlock(event) {
 window.addEventListener('mousedown', grabBlock)
 window.addEventListener('mousemove', moveBlock)
 window.addEventListener('mouseup', relBlock)
+}

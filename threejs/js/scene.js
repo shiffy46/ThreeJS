@@ -1,7 +1,7 @@
 
 
 
-
+function createScene() {
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 camera.position.set( 0, -5, 100 );
@@ -31,11 +31,11 @@ window.addEventListener('resize',function()
     var height = window.innerHeight;
     renderer.setSize(width,height);
     camera.aspect = width/height;
-    console.log("camera aspect: " + camera.aspect);
     camera.updateProjectionMatrix();
 }
 );
 
+setBaseCubes(scene, camera);
 
 var animate = function () {
     requestAnimationFrame( animate );
@@ -43,3 +43,5 @@ var animate = function () {
 };
 
 animate();
+return(scene);
+}
